@@ -4,7 +4,7 @@ import 'package:simple_todo_app/colors.dart';
 class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
-  final Function(bool?)? onChanged;
+  final void Function(bool?)? onChanged;
 
   const ToDoTile({
     super.key,
@@ -16,7 +16,7 @@ class ToDoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(25.0),
+      padding: const EdgeInsets.all(15.0),
       child: Container(
         padding: EdgeInsets.all(15.0),
         decoration: BoxDecoration(
@@ -25,7 +25,12 @@ class ToDoTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Checkbox(value: taskCompleted, onChanged: onChanged),
+            Checkbox(
+              value: taskCompleted,
+              onChanged: onChanged,
+              activeColor: Colors.white,
+              checkColor: lightGreen,
+            ),
             // ignore: unnecessary_this
             Text(this.taskName),
           ],

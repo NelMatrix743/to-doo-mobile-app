@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import "package:simple_todo_app/screens/home_screen.dart";
+//import "package:flutter/rendering.dart";
 
 void main() {
-  runApp(const MyApp());
+  //debugPaintSizeEnabled = true;
+  runApp(const ToDoo());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ToDoo extends StatelessWidget {
+  const ToDoo({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SafeArea(child: const Placeholder()));
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }

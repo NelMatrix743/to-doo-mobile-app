@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:simple_todo_app/colors.dart';
 
 class DialogButton extends StatelessWidget {
-  const DialogButton({super.key});
+  final String buttonText;
+  final VoidCallback onPressed;
+  const DialogButton({
+    super.key,
+    required this.buttonText,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialButton(
+      onPressed: this.onPressed,
+      color: deepGreen,
+      child: Text(this.buttonText, style: TextStyle(color: whiteBackground)),
+    );
   }
 }

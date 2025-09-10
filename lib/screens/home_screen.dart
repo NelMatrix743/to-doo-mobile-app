@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void createNewToDoTask() {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) {
         return TaskInputDialog(
           inputController: _controller,

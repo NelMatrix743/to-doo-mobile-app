@@ -40,9 +40,9 @@ class TaskInputDialog extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                DialogButton(buttonText: "SAVE", onPressed: onSave),
+                DialogButton(buttonText: "SAVE", onPressed: this.onSave),
                 SizedBox(width: 10),
-                DialogButton(buttonText: "CANCEL", onPressed: onCancel),
+                DialogButton(buttonText: "CANCEL", onPressed: this.onCancel),
               ],
             ),
           ],

@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:simple_todo_app/colors.dart";
 import "package:simple_todo_app/components/todo_tile.dart";
+import "package:simple_todo_app/components/task_dialog.dart";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,6 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => todoList[index][1] = !todoList[index][1]);
   }
 
+  void createNewToDoTask() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return TaskInputDialog();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: this.createNewToDoTask,
+        child: Icon(Icons.add, color: whiteBackground),
+        backgroundColor: lightGreen,
       ),
       body: SafeArea(
         child: ListView.builder(

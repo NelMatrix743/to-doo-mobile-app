@@ -16,15 +16,33 @@ class _HomeScreenState extends State<HomeScreen> {
     ["Complete to-doo", false],
   ];
 
+  final TextEditingController _controller = TextEditingController();
+
   void checkBoxChanged(bool? value, int index) {
     setState(() => todoList[index][1] = !todoList[index][1]);
+  }
+
+  void cancelToDoTask() {
+    _controller.clear();
+    Navigator.of(context).pop();
+  }
+
+  void saveNewToDoTask() {
+    setState(() {
+      todoList.add([_controller.text, false]);
+      cancelToDoTask();
+    });
   }
 
   void createNewToDoTask() {
     showDialog(
       context: context,
       builder: (context) {
-        return TaskInputDialog();
+        return TaskInputDialog(
+          inputController: _controller,
+          onSave: saveNewToDoTask,
+          onCancel: cancelToDoTask,
+        );
       },
     );
   }
@@ -46,9 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: this.createNewToDoTask,
-        child: Icon(Icons.add, color: whiteBackground),
+        onPressed: createNewToDoTask,
         backgroundColor: lightGreen,
+        child: Icon(Icons.add, color: whiteBackground),
       ),
       body: SafeArea(
         child: ListView.builder(
@@ -57,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return ToDoTile(
               taskName: todoList[index][0],
               taskCompleted: todoList[index][1],
-              onChanged: (value) => this.checkBoxChanged(value, index),
+              onChanged: (value) => checkBoxChanged(value, index),
             );
           },
         ),

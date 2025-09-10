@@ -22,25 +22,27 @@ class TaskInputDialog extends StatelessWidget {
         borderRadius:
             BorderRadius.zero, // Or BorderRadius.all(Radius.circular(0.0))
       ),
-      content: Container(
+      content: SizedBox(
         height: 180,
         width: 100,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextField(
-              controller: this.inputController,
+              controller: inputController,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "add a task",
+                hintText: "ADD A TASK...",
+                hintStyle: TextStyle(color: whiteBackground),
               ),
+              style: TextStyle(color: whiteBackground),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                DialogButton(buttonText: "SAVE", onPressed: this.onSave),
+                DialogButton(buttonText: "SAVE", onPressed: onSave),
                 SizedBox(width: 10),
-                DialogButton(buttonText: "CANCEL", onPressed: this.onCancel),
+                DialogButton(buttonText: "CANCEL", onPressed: onCancel),
               ],
             ),
           ],

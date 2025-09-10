@@ -33,7 +33,7 @@ class ToDoTile extends StatelessWidget {
             ),
             // ignore: unnecessary_this
             Text(
-              this.taskName,
+              taskName,
               style: TextStyle(
                 decoration: taskCompleted
                     ? TextDecoration.lineThrough

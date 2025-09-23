@@ -48,6 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void deleteTask(int index) {
+    setState(() {
+      this.todoList.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
               taskName: todoList[index][0],
               taskCompleted: todoList[index][1],
               onChanged: (value) => checkBoxChanged(value, index),
+              deleteTaskFunction: (context) => this.deleteTask(index),
             );
           },
         ),

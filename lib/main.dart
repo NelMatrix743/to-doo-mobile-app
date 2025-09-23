@@ -4,11 +4,11 @@ import "package:simple_todo_app/screens/home_screen.dart";
 
 void main() {
   //debugPaintSizeEnabled = true;
-  runApp(const ToDoo());
+  runApp(const ToDooApp());
 }
 
-class ToDoo extends StatelessWidget {
-  const ToDoo({super.key});
+class ToDooApp extends StatelessWidget {
+  const ToDooApp({super.key});
 
   // This widget is the root of your application.
   @override

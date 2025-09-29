@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import "package:simple_todo_app/screens/home_screen.dart";
+import 'package:hive_ce_flutter/hive_flutter.dart';
 //import "package:flutter/rendering.dart";
 
-void main() {
+void main() async {
   //debugPaintSizeEnabled = true;
+
+  // initialize the hive framework
+  await Hive.initFlutter();
+
+  // open Todo entry database (box)
+  var todoEntryBox = Hive.openBox("todo_database");
+
   runApp(const ToDooApp());
 }
 

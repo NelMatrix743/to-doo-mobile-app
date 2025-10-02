@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import "package:simple_todo_app/colors.dart";
 import "package:simple_todo_app/components/todo_tile.dart";
 import "package:simple_todo_app/components/task_dialog.dart";
-import "package:hive_ce_flutter/hive_flutter.dart";
+import "package:simple_todo_app/data/todo_database.dart";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,17 +13,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // open Todo entry database (box)
-  var todoEntryBox = Hive.openBox("todo_database");
 
-  final List<List<dynamic>> todoList = [
-    ["Hello, World!", true],
-    ["Complete to-doo", false],
-  ];
+  ToDoDatabase dbRef = ToDoDatabase();
+  List<List<dynamic>> todoList = [];
 
   final TextEditingController _controller = TextEditingController();
 
   void checkBoxChanged(bool? value, int index) {
-    setState(() => todoList[index][1] = !todoList[index][1]);
+    setState(() => todoList[index][1] = todoList[index][1]);
   }
 
   void cancelToDoTask() {

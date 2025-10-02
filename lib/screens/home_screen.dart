@@ -17,6 +17,19 @@ class _HomeScreenState extends State<HomeScreen> {
   ToDoDatabase dbRef = ToDoDatabase();
   List<List<dynamic>> todoList = [];
 
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    var tasks = await dbRef.load();
+    setState(() {
+      todoList = tasks;
+    });
+  }
+
   final TextEditingController _controller = TextEditingController();
 
   void checkBoxChanged(bool? value, int index) {

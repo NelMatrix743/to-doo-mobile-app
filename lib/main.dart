@@ -9,9 +9,6 @@ void main() async {
   // initialize the hive framework
   await Hive.initFlutter();
 
-  // open Todo entry database (box)
-  var todoEntryBox = Hive.openBox("todo_database");
-
   runApp(const ToDooApp());
 }
 

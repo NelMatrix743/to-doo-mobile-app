@@ -13,9 +13,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // open Todo entry database (box)
-
   ToDoDatabase dbRef = ToDoDatabase();
   List<List<dynamic>> todoList = [];
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
@@ -30,10 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  final TextEditingController _controller = TextEditingController();
-
   void checkBoxChanged(bool? value, int index) {
-    setState(() => todoList[index][1] = todoList[index][1]);
+    setState(() => todoList[index][1] = !todoList[index][1]);
   }
 
   void cancelToDoTask() {

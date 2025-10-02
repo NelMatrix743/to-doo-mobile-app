@@ -30,8 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void checkBoxChanged(bool? value, int index) {
+  void checkBoxChanged(bool? value, int index) async {
     setState(() => todoList[index][1] = !todoList[index][1]);
+    await this.dbRef.updateTask(index, todoList[index]);
   }
 
   void cancelToDoTask() {
@@ -39,11 +40,12 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.of(context).pop();
   }
 
-  void saveNewToDoTask() {
+  void saveNewToDoTask() async {
     setState(() {
       todoList.add([_controller.text, false]);
       cancelToDoTask();
     });
+    await this.dbRef.addTask(this.todoList.last);
   }
 
   void createNewToDoTask() {
@@ -60,10 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void deleteTask(int index) {
+  void deleteTask(int index) async {
     setState(() {
       this.todoList.removeAt(index);
     });
+    await this.dbRef.deleteTask(index);
   }
 
   @override

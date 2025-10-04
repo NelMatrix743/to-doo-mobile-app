@@ -1,16 +1,8 @@
-# simple_todo_app
+# TO-DOO APP
 
-A new Flutter project.
+This is a simple __todo app__ built with __Dart__ and __Flutter__. It lets you keep track of your daily tasks. It features a simple UI and UX that lets your add/view tasks, persist task data, and delete tasks upon completion.  
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+![app mockup screenshot](screenshots/app_mock_up.png)  
+<br/>
+Feel free to use this **codebase** and modify the resulting **app** as you see fit. [;)] 
